@@ -74,5 +74,4 @@ public class Pet {
     public void setBreed(Boolean adoptionStatus) {
         this.adoptionStatus = adoptionStatus;
     }
-
 }

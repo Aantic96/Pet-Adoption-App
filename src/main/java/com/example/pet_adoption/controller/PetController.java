@@ -3,6 +3,7 @@ package com.example.pet_adoption.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.pet_adoption.model.MedicalRecord;
 import com.example.pet_adoption.model.Pet;
 import com.example.pet_adoption.repository.PetRepository;
+import com.example.pet_adoption.service.MedicalRecordService;
 import com.example.pet_adoption.service.PetService;
 
 import jakarta.validation.Valid;
@@ -30,6 +33,9 @@ public class PetController {
 
     @Autowired
     PetRepository petRepository;
+
+    @Autowired
+    MedicalRecordService medicalRecordService;
 
     @GetMapping
     @ResponseBody
@@ -66,5 +72,16 @@ public class PetController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/{petId}/medical-records")
+    public ResponseEntity<List<MedicalRecord>> getMedicalRecordsByPet(@PathVariable Long petId) {
+        List<MedicalRecord> medicalRecords = medicalRecordService.getMedicalRecordsByPet(petId);
+        
+        if (medicalRecords.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        
+        return new ResponseEntity<>(medicalRecords, HttpStatus.OK);
     }
 }

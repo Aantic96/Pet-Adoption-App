@@ -3,7 +3,11 @@ package com.example.pet_adoption.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,5 +46,25 @@ public class PetController {
     @PostMapping
     public Pet createPet(@Valid @RequestBody Pet pet) {
         return petRepository.save(pet);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Pet> patchPet(@PathVariable Long id, @RequestBody Pet updatedPet) {
+        Pet pet = petService.patchPet(id, updatedPet);
+        if (pet != null) {
+            return ResponseEntity.ok(pet);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePet(@PathVariable Long id) {
+        boolean isDeleted = petService.deletePet(id);
+        if (isDeleted) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

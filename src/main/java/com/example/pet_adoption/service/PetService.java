@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.pet_adoption.model.Pet;
+import com.example.pet_adoption.repository.PetRepository;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -18,6 +20,9 @@ import jakarta.persistence.criteria.Root;
 
 @Service
 public class PetService {
+
+    @Autowired
+    PetRepository petRepository;
     
     @Autowired
     StringToDateConverter dateConverter;
@@ -55,5 +60,39 @@ public class PetService {
 
         return typedQuery.getResultList();
 
+    }
+
+    public Pet patchPet(Long id, Pet updatedPet) {
+        Pet existingPet = petRepository.findById(id).orElse(null);
+        if (existingPet != null) {
+
+            if(updatedPet.getName() != null) {
+                existingPet.setName(updatedPet.getName());
+            }
+            if (updatedPet.getAdoptionStatus() != null) {
+                existingPet.setAdoptionStatus(updatedPet.getAdoptionStatus());
+            }
+            if (updatedPet.getDateOfBirth() != null) {
+                existingPet.setDateOfBirth(updatedPet.getDateOfBirth());
+            }
+            if (updatedPet.getAnimal() != null) {
+                existingPet.setAnimal(updatedPet.getAnimal());
+            }
+            if (updatedPet.getBreed() != null) {
+                existingPet.setBreed(updatedPet.getBreed());
+            }
+
+            return petRepository.save(existingPet);
+        }
+
+        return null;
+    }
+
+    public boolean deletePet(Long id) {
+        if (petRepository.existsById(id)) {
+            petRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

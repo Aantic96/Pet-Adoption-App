@@ -1,8 +1,6 @@
 package com.example.pet_adoption.service;
 
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.example.pet_adoption.model.Pet;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
@@ -26,17 +25,14 @@ public class PetService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<Pet> findFilteredPets(Boolean status, String dobAfter, String animal) {
+    public List<Pet> findFilteredPets(Boolean status, String dobAfter, String animal, int page, int perPage) {
 
-        // Get CriteriaBuilder and CriteriaQuery
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Pet> query = cb.createQuery(Pet.class);
         Root<Pet> petRoot = query.from(Pet.class);
 
-        // List to hold predicates (conditions)
         List<Predicate> predicates = new ArrayList<>();
 
-        // Add filter for adoption status if it's provided
         if (status != null) {
             predicates.add(cb.equal(petRoot.get("adoptionStatus"), status));
         }
@@ -46,17 +42,18 @@ public class PetService {
             predicates.add(cb.greaterThan(petRoot.get("dateOfBirth"), dobAfterConverted));
         }
 
-        // Add filter for animal type if it's provided
         if (animal != null) {
-            predicates.add(cb.like(petRoot.get("animal"), "%" + animal + "%"));  // Using LIKE for string match
+            predicates.add(cb.like(petRoot.get("animal"), "%" + animal + "%"));
         }
-
-        // Apply all the conditions (AND logic) to the query
+        
         query.where(cb.and(predicates.toArray(new Predicate[0])));
 
-        System.out.println(query);
+        TypedQuery<Pet> typedQuery = entityManager.createQuery(query);
 
-        // Execute the query and return the list of filtered pets
-        return entityManager.createQuery(query).getResultList();
+        typedQuery.setFirstResult(page * perPage);
+        typedQuery.setMaxResults(perPage);
+
+        return typedQuery.getResultList();
+
     }
 }

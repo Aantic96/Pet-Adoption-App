@@ -1,12 +1,8 @@
 package com.example.pet_adoption.controller;
 
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,10 +31,12 @@ public class PetController {
     @ResponseBody
     public List<Pet> getPets(
         @RequestParam(required = false) Boolean status,
-        @RequestParam(required = false, name="dob-after") String dobAfter,
-        @RequestParam(required = false) String animal
+        @RequestParam(required = false, name = "dob-after") String dobAfter,
+        @RequestParam(required = false) String animal,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "10", name = "per-page") int perPage
     ) {
-        return petService.findFilteredPets(status, dobAfter, animal); 
+        return petService.findFilteredPets(status, dobAfter, animal, page, perPage); 
     }
 
     @PostMapping

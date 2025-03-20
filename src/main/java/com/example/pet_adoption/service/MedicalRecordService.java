@@ -36,8 +36,8 @@ public class MedicalRecordService {
         return medicalRecordRepository.save(medicalRecord);
     }
 
-    public Page<MedicalRecord> getAllMedicalRecords(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    public Page<MedicalRecord> getAllMedicalRecords(int page, int perPage) {
+        Pageable pageable = PageRequest.of(page, perPage);
         return medicalRecordRepository.findAll(pageable);
     }
 

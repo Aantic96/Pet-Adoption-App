@@ -1,6 +1,9 @@
 package com.example.pet_adoption.model;
 
+import java.util.Date;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,8 +26,8 @@ public class PetStory {
     private String writtenBy;
     private java.util.Date dateWritten;
 
-    @ManyToOne
-    @JoinColumn(name = "pet_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "pet_id", nullable = false)
     private Pet pet;
 
     public Long getId() {
@@ -51,11 +54,11 @@ public class PetStory {
         this.writtenBy = writtenBy;
     }
 
-    public java.util.Date getDateWritten() {
+    public Date getDateWritten() {
         return dateWritten;
     }
 
-    public void setDateWritten(java.util.Date dateWritten) {
+    public void setDateWritten(Date dateWritten) {
         this.dateWritten = dateWritten;
     }
 

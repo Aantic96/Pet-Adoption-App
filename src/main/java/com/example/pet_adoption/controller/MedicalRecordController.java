@@ -35,9 +35,9 @@ public class MedicalRecordController {
     @GetMapping
     public ResponseEntity<Page<MedicalRecord>> getAllMedicalRecords(
         @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "10") int size)
+        @RequestParam(defaultValue = "10", name = "per-page") int perPage)
     {
-        Page<MedicalRecord> medicalRecords = medicalRecordService.getAllMedicalRecords(page, size);
+        Page<MedicalRecord> medicalRecords = medicalRecordService.getAllMedicalRecords(page, perPage);
         return new ResponseEntity<>(medicalRecords, HttpStatus.OK);
     }
 

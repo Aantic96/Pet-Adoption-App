@@ -45,6 +45,7 @@ public class Pet {
     private PetStory petStory;
 
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<AdoptionApplication> adoptionApplications;
 
     public Long getId() {

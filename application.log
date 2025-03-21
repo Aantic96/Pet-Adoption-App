@@ -1,0 +1,53 @@
+2025-03-21T15:49:07.076+01:00  INFO 84870 --- [Pet Adoption] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-21T15:49:07.076+01:00  INFO 84870 --- [Pet Adoption] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-21T15:49:07.079+01:00  INFO 84870 --- [Pet Adoption] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-03-21T15:49:07.775+01:00  INFO 84870 --- [Pet Adoption] [http-nio-8080-exec-2] c.e.p.s.AdoptionApplicationService       : Publishing event for application approval: 5
+2025-03-21T15:54:20.095+01:00  INFO 84870 --- [Pet Adoption] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-21T15:54:20.148+01:00  INFO 84870 --- [Pet Adoption] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-03-21T15:54:20.173+01:00  INFO 84870 --- [Pet Adoption] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-21T15:54:20.184+01:00  INFO 84870 --- [Pet Adoption] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-21T15:54:20.210+01:00  INFO 84870 --- [Pet Adoption] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-21T15:54:27.970+01:00  INFO 87997 --- [Pet Adoption] [main] c.e.pet_adoption.PetAdoptionApplication  : Starting PetAdoptionApplication using Java 21.0.6 with PID 87997 (/home/nicky/Documents/Java/pet-adoption/build/classes/java/main started by nicky in /home/nicky/Documents/Java/pet-adoption)
+2025-03-21T15:54:27.973+01:00  INFO 87997 --- [Pet Adoption] [main] c.e.pet_adoption.PetAdoptionApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-03-21T15:54:28.884+01:00  INFO 87997 --- [Pet Adoption] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-21T15:54:28.952+01:00  INFO 87997 --- [Pet Adoption] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 4 JPA repository interfaces.
+2025-03-21T15:54:29.473+01:00  INFO 87997 --- [Pet Adoption] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-21T15:54:29.487+01:00  INFO 87997 --- [Pet Adoption] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-21T15:54:29.488+01:00  INFO 87997 --- [Pet Adoption] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-21T15:54:29.533+01:00  INFO 87997 --- [Pet Adoption] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-21T15:54:29.533+01:00  INFO 87997 --- [Pet Adoption] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1508 ms
+2025-03-21T15:54:29.746+01:00  INFO 87997 --- [Pet Adoption] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-21T15:54:29.784+01:00  INFO 87997 --- [Pet Adoption] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-03-21T15:54:29.811+01:00  INFO 87997 --- [Pet Adoption] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-21T15:54:30.109+01:00  INFO 87997 --- [Pet Adoption] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-21T15:54:30.153+01:00  INFO 87997 --- [Pet Adoption] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-21T15:54:30.334+01:00  INFO 87997 --- [Pet Adoption] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@79d63a4f
+2025-03-21T15:54:30.336+01:00  INFO 87997 --- [Pet Adoption] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-21T15:54:30.372+01:00  WARN 87997 --- [Pet Adoption] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21T15:54:30.374+01:00  WARN 87997 --- [Pet Adoption] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-21T15:54:30.388+01:00  INFO 87997 --- [Pet Adoption] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-21T15:54:31.407+01:00  INFO 87997 --- [Pet Adoption] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-21T15:54:31.549+01:00  INFO 87997 --- [Pet Adoption] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-21T15:54:31.986+01:00  INFO 87997 --- [Pet Adoption] [main] c.e.p.e.AdoptionApplicationEventListener : AdoptionApplicationEventListener initialized
+2025-03-21T15:54:32.034+01:00  WARN 87997 --- [Pet Adoption] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-21T15:54:32.479+01:00  INFO 87997 --- [Pet Adoption] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-21T15:54:32.487+01:00  INFO 87997 --- [Pet Adoption] [main] c.e.pet_adoption.PetAdoptionApplication  : Started PetAdoptionApplication in 4.994 seconds (process running for 5.769)
+2025-03-21T15:55:13.508+01:00  INFO 87997 --- [Pet Adoption] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-21T15:55:13.511+01:00  INFO 87997 --- [Pet Adoption] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-21T15:55:13.514+01:00  INFO 87997 --- [Pet Adoption] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-03-21T15:55:14.331+01:00  INFO 87997 --- [Pet Adoption] [http-nio-8080-exec-1] c.e.p.s.AdoptionApplicationService       : Publishing event for application approval: 5
+2025-03-21T15:55:14.332+01:00  INFO 87997 --- [Pet Adoption] [http-nio-8080-exec-1] c.e.p.e.AdoptionApplicationEventListener : Received event for adoption application: 5
+2025-03-21T15:55:14.366+01:00  INFO 87997 --- [Pet Adoption] [http-nio-8080-exec-1] c.e.p.e.AdoptionApplicationEventListener : Rejecting application: 4
+2025-03-21T15:55:14.432+01:00  INFO 87997 --- [Pet Adoption] [http-nio-8080-exec-1] c.e.p.e.AdoptionApplicationEventListener : Updating pet adoption status to TRUE for pet: 8
+2025-03-21T15:56:54.918+01:00  INFO 87997 --- [Pet Adoption] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-21T15:56:54.945+01:00  INFO 87997 --- [Pet Adoption] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-03-21T15:56:54.976+01:00  INFO 87997 --- [Pet Adoption] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-21T15:56:54.984+01:00  INFO 87997 --- [Pet Adoption] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-21T15:56:55.006+01:00  INFO 87997 --- [Pet Adoption] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

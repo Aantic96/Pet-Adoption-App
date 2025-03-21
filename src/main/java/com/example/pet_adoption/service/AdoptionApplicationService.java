@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-
+import com.example.pet_adoption.event.AdoptionApplicationEvent;
+import com.example.pet_adoption.miscellaneous.AdoptionStatus.AdoptionApplicationStatus;
 import com.example.pet_adoption.model.AdoptionApplication;
 import com.example.pet_adoption.model.Pet;
 import com.example.pet_adoption.repository.AdoptionApplicationRepository;
@@ -17,12 +19,15 @@ import com.example.pet_adoption.repository.PetRepository;
 
 @Service
 public class AdoptionApplicationService {
-    
+
     @Autowired
     private AdoptionApplicationRepository adoptionApplicationRepository;
 
     @Autowired
     private PetRepository petRepository;
+    
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
 
     public AdoptionApplication createAdoptionApplication(AdoptionApplication application) {
         if (application.getPet() != null && application.getPet().getId() != null) {
@@ -47,11 +52,23 @@ public class AdoptionApplicationService {
     }
 
     public AdoptionApplication updateApplication(Long id, AdoptionApplication updatedApplication) {
-        if (adoptionApplicationRepository.existsById(id)) {
-            updatedApplication.setId(id);
-            return adoptionApplicationRepository.save(updatedApplication);
+        
+        if (!adoptionApplicationRepository.existsById(id)) {
+            return null;
         }
-        return null;
+
+        AdoptionApplication existingApplication = adoptionApplicationRepository.findById(id).orElse(null);
+        if(existingApplication == null) {
+            return null;
+        }
+
+        if(updatedApplication.getStatus() == AdoptionApplicationStatus.APPROVED) {
+            eventPublisher.publishEvent(new AdoptionApplicationEvent(this, id, existingApplication.getPet().getId()));
+        }
+
+        updatedApplication.setId(id);
+        return adoptionApplicationRepository.save(updatedApplication);
+
     }
 
     public boolean deleteApplication(Long id) {

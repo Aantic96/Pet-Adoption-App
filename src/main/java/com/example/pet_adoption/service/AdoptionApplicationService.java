@@ -30,6 +30,14 @@ public class AdoptionApplicationService {
     private ApplicationEventPublisher eventPublisher;
 
     public AdoptionApplication createAdoptionApplication(AdoptionApplication application) {
+
+        List<AdoptionApplication> existingApplications = adoptionApplicationRepository.findByPetIdAndApplicantContactInfo(
+            application.getPet().getId(), application.getApplicantContactInfo()
+            );
+
+        if (!existingApplications.isEmpty()) {
+            throw new RuntimeException("Applicant has already submitted an application for this pet.");
+        }
         if (application.getPet() != null && application.getPet().getId() != null) {
             Pet existingPet = petRepository.findById(application.getPet().getId())
                 .orElseThrow(() -> new RuntimeException("Pet not found"));

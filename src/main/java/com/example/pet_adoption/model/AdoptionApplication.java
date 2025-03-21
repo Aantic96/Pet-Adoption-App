@@ -2,6 +2,7 @@ package com.example.pet_adoption.model;
 
 import com.example.pet_adoption.miscellaneous.AdoptionStatus.AdoptionApplicationStatus;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -11,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "adoption_applications")
@@ -21,6 +23,9 @@ public class AdoptionApplication {
     private Long id;
 
     private String applicantName;
+
+    @NotNull(message = "Applicant contact info cannot be null.")
+    @Column(nullable = false)
     private String applicantContactInfo;
 
     @Enumerated(EnumType.STRING)

@@ -8,4 +8,6 @@ import com.example.pet_adoption.model.AdoptionApplication;
 
 public interface AdoptionApplicationRepository extends JpaRepository<AdoptionApplication, Long> {
     List<AdoptionApplication> findByPetId(Long petId);
+
+    List<AdoptionApplication> findByPetIdAndApplicantContactInfo(Long petId, String applicantContactInfo);
 }

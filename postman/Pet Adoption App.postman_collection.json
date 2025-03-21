@@ -1,0 +1,1594 @@
+{
+	"info": {
+		"_postman_id": "b7195dc4-7fd9-4287-b0c9-ed4951e4a003",
+		"name": "Pet Adoption App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39908367"
+	},
+	"item": [
+		{
+			"name": "ADOPTION APPLICATION",
+			"item": [
+				{
+					"name": "Get single by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adoption-applications/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adoption-applications",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "AdoptionApplication id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adoption-applications?page=1&per-page=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adoption-applications"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "default 0"
+								},
+								{
+									"key": "per-page",
+									"value": "2",
+									"description": "default 10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"applicantName\": \"Jane Doe\",\n    \"applicantContactInfo\": \"janejane@example.com\",\n    \"status\": \"PENDING\",\n    \"pet\": {\n        \"id\": 7\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adoption-applications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adoption-applications"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"applicantName\": \"Jane Doe\",\n    \"applicantContactInfo\": \"janejane@example.com\",\n    \"status\": \"PENDING\",\n    \"pet\": {\n        \"id\": 8\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/adoption-applications",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adoption-applications"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Mar 2025 14:10:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 5,\n    \"applicantName\": \"Jane Doe\",\n    \"applicantContactInfo\": \"janejane@example.com\",\n    \"status\": \"PENDING\",\n    \"pet\": {\n        \"id\": 8,\n        \"animal\": \"Parrot\",\n        \"name\": \"Xoxya\",\n        \"breed\": null,\n        \"dateOfBirth\": \"2020-03-18\",\n        \"adoptionStatus\": true\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"applicantName\": \"Jane Doe\",\n    \"applicantContactInfo\": \"janejane@example.com\",\n    \"status\": \"APPROVED\",\n    \"pet\": {\n        \"id\": 8\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adoption-applications/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adoption-applications",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adoption-applications/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adoption-applications",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "AdoptionApplication id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MEDICAL RECORD",
+			"item": [
+				{
+					"name": "Get single by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/medical-records/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medical-records",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/medical-records/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medical-records",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 12:51:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8,\n    \"vaccineDetails\": \"Rabies vaccine - 2024\",\n    \"healthCheckDetails\": \"General health checkup was done. No issues found.\",\n    \"surgeries\": \"Spayed on 2023-05-12\",\n    \"medications\": [\n        \"Antibiotics\",\n        \"Painkillers\"\n    ],\n    \"lastCheckedDate\": \"2024-03-18\",\n    \"pet\": {\n        \"id\": 2,\n        \"animal\": \"Cat\",\n        \"name\": \"Mimio\",\n        \"breed\": null,\n        \"dateOfBirth\": \"2020-01-25\",\n        \"adoptionStatus\": false,\n        \"petStory\": null,\n        \"adoptionApplications\": []\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/medical-records?per-page=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medical-records"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "default 0",
+									"disabled": true
+								},
+								{
+									"key": "per-page",
+									"value": "2",
+									"description": "default 10 (size)"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/medical-records?page=1&per-page=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medical-records"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "default 0"
+										},
+										{
+											"key": "per-page",
+											"value": "2",
+											"description": "default 10 (size)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 13:05:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"content\": [\n        {\n            \"id\": 3,\n            \"vaccineDetails\": null,\n            \"healthCheckDetails\": \"Possible heart disease.\",\n            \"surgeries\": null,\n            \"medications\": [],\n            \"lastCheckedDate\": \"2025-03-18\",\n            \"pet\": {\n                \"id\": 5,\n                \"animal\": \"Cat\",\n                \"name\": \"Mo\",\n                \"breed\": \"Siamese\",\n                \"dateOfBirth\": \"2020-03-18\",\n                \"adoptionStatus\": true,\n                \"petStory\": null,\n                \"adoptionApplications\": []\n            }\n        },\n        {\n            \"id\": 4,\n            \"vaccineDetails\": \"Rabies vaccine - 2024\",\n            \"healthCheckDetails\": \"General health checkup was done. No issues found.\",\n            \"surgeries\": \"Spayed on 2023-05-12\",\n            \"medications\": [\n                \"Antibiotics\",\n                \"Painkillers\"\n            ],\n            \"lastCheckedDate\": \"2024-03-18\",\n            \"pet\": {\n                \"id\": 1,\n                \"animal\": \"Cat\",\n                \"name\": \"Mimi\",\n                \"breed\": null,\n                \"dateOfBirth\": \"2020-01-25\",\n                \"adoptionStatus\": false,\n                \"petStory\": null,\n                \"adoptionApplications\": []\n            }\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 1,\n        \"pageSize\": 2,\n        \"sort\": {\n            \"sorted\": false,\n            \"empty\": true,\n            \"unsorted\": true\n        },\n        \"offset\": 2,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"totalPages\": 10,\n    \"totalElements\": 20,\n    \"last\": false,\n    \"size\": 2,\n    \"number\": 1,\n    \"sort\": {\n        \"sorted\": false,\n        \"empty\": true,\n        \"unsorted\": true\n    },\n    \"numberOfElements\": 2,\n    \"first\": false,\n    \"empty\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vaccineDetails\": \"Rabies vaccine - 2024\",\n    \"healthCheckDetails\": \"General health checkup was done. No issues found.\",\n    \"surgeries\": \"Spayed on 2023-05-12\",\n    \"medications\": [\"Antibiotics\", \"Painkillers\"],\n    \"lastCheckedDate\": \"2024-03-18\",\n    \"pet\": {\n        \"id\": 7\n    }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/medical-records",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medical-records"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vaccineDetails\": \"Rabies vaccine - 2024\",\n    \"healthCheckDetails\": \"General health checkup was done. No issues found.\",\n    \"surgeries\": \"Spayed on 2023-05-12\",\n    \"medications\": [\"Antibiotics\", \"Painkillers\"],\n    \"lastCheckedDate\": \"2024-03-18\",\n    \"pet\": {\n        \"id\": 5\n    }\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/medical-records",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medical-records"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 15:14:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 23,\n    \"vaccineDetails\": \"Rabies vaccine - 2024\",\n    \"healthCheckDetails\": \"General health checkup was done. No issues found.\",\n    \"surgeries\": \"Spayed on 2023-05-12\",\n    \"medications\": [\n        \"Antibiotics\",\n        \"Painkillers\"\n    ],\n    \"lastCheckedDate\": \"2024-03-18\",\n    \"pet\": {\n        \"id\": 5,\n        \"animal\": \"Cat\",\n        \"name\": \"Mo\",\n        \"breed\": \"Siamese\",\n        \"dateOfBirth\": \"2020-03-18\",\n        \"adoptionStatus\": true,\n        \"petStory\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"healthCheckDetails\": \"Possible heart disease.\",\n    \"lastCheckedDate\": \"2025-03-18\",\n    \"pet\": {\n        \"id\": 7\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/medical-records/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medical-records",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "MedicalRecord id"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"healthCheckDetails\": \"Possible heart disease.\",\n    \"lastCheckedDate\": \"2025-03-18\",\n    \"pet\": {\n        \"id\": 5\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/medical-records/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medical-records",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 12:56:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"vaccineDetails\": null,\n    \"healthCheckDetails\": \"Possible heart disease.\",\n    \"surgeries\": null,\n    \"medications\": [],\n    \"lastCheckedDate\": \"2025-03-18\",\n    \"pet\": {\n        \"id\": 5,\n        \"animal\": \"Cat\",\n        \"name\": \"Mo\",\n        \"breed\": \"Siamese\",\n        \"dateOfBirth\": \"2020-03-18\",\n        \"adoptionStatus\": true,\n        \"petStory\": null,\n        \"adoptionApplications\": []\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/medical-records/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medical-records",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/medical-records/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medical-records",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "7"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 12:52:57 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Fail (not found)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/medical-records/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medical-records",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "777"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 12:53:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PET",
+			"item": [
+				{
+					"name": "Get pet's medical records",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pets/:petId/medical-records",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pets",
+								":petId",
+								"medical-records"
+							],
+							"variable": [
+								{
+									"key": "petId",
+									"value": "4",
+									"description": "Pet id"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/pets/:petId/medical-records",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pets",
+										":petId",
+										"medical-records"
+									],
+									"variable": [
+										{
+											"key": "petId",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Mar 2025 19:45:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 11,\n        \"vaccineDetails\": \"Rabies vaccine - 2024\",\n        \"healthCheckDetails\": \"General health checkup was done. No issues found.\",\n        \"surgeries\": \"Spayed on 2023-05-12\",\n        \"medications\": [\n            \"Antibiotics\",\n            \"Painkillers\"\n        ],\n        \"lastCheckedDate\": \"2024-03-18\",\n        \"pet\": {\n            \"id\": 4,\n            \"animal\": \"Cat\",\n            \"name\": \"Mo\",\n            \"breed\": \"Siamese\",\n            \"dateOfBirth\": \"2020-03-18\",\n            \"adoptionStatus\": true,\n            \"petStory\": null,\n            \"adoptionApplications\": []\n        }\n    },\n    {\n        \"id\": 12,\n        \"vaccineDetails\": \"Rabies vaccine - 2024\",\n        \"healthCheckDetails\": \"General health checkup was done. No issues found.\",\n        \"surgeries\": \"Spayed on 2023-05-12\",\n        \"medications\": [\n            \"Antibiotics\",\n            \"Painkillers\"\n        ],\n        \"lastCheckedDate\": \"2024-03-18\",\n        \"pet\": {\n            \"id\": 4,\n            \"animal\": \"Cat\",\n            \"name\": \"Mo\",\n            \"breed\": \"Siamese\",\n            \"dateOfBirth\": \"2020-03-18\",\n            \"adoptionStatus\": true,\n            \"petStory\": null,\n            \"adoptionApplications\": []\n        }\n    },\n    {\n        \"id\": 13,\n        \"vaccineDetails\": \"Rabies vaccine - 2024\",\n        \"healthCheckDetails\": \"General health checkup was done. No issues found.\",\n        \"surgeries\": \"Spayed on 2023-05-12\",\n        \"medications\": [\n            \"Antibiotics\",\n            \"Painkillers\"\n        ],\n        \"lastCheckedDate\": \"2024-03-18\",\n        \"pet\": {\n            \"id\": 4,\n            \"animal\": \"Cat\",\n            \"name\": \"Mo\",\n            \"breed\": \"Siamese\",\n            \"dateOfBirth\": \"2020-03-18\",\n            \"adoptionStatus\": true,\n            \"petStory\": null,\n            \"adoptionApplications\": []\n        }\n    },\n    {\n        \"id\": 14,\n        \"vaccineDetails\": \"Rabies vaccine - 2024\",\n        \"healthCheckDetails\": \"General health checkup was done. No issues found.\",\n        \"surgeries\": \"Spayed on 2023-05-12\",\n        \"medications\": [\n            \"Antibiotics\",\n            \"Painkillers\"\n        ],\n        \"lastCheckedDate\": \"2024-03-18\",\n        \"pet\": {\n            \"id\": 4,\n            \"animal\": \"Cat\",\n            \"name\": \"Mo\",\n            \"breed\": \"Siamese\",\n            \"dateOfBirth\": \"2020-03-18\",\n            \"adoptionStatus\": true,\n            \"petStory\": null,\n            \"adoptionApplications\": []\n        }\n    },\n    {\n        \"id\": 15,\n        \"vaccineDetails\": \"Rabies vaccine - 2024\",\n        \"healthCheckDetails\": \"General health checkup was done. No issues found.\",\n        \"surgeries\": \"Spayed on 2023-05-12\",\n        \"medications\": [\n            \"Antibiotics\",\n            \"Painkillers\"\n        ],\n        \"lastCheckedDate\": \"2024-03-18\",\n        \"pet\": {\n            \"id\": 4,\n            \"animal\": \"Cat\",\n            \"name\": \"Mo\",\n            \"breed\": \"Siamese\",\n            \"dateOfBirth\": \"2020-03-18\",\n            \"adoptionStatus\": true,\n            \"petStory\": null,\n            \"adoptionApplications\": []\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get all-filtered",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pets"
+							],
+							"query": [
+								{
+									"key": "dob-after",
+									"value": "2023-03-18",
+									"description": "yyyy-MM-dd",
+									"disabled": true
+								},
+								{
+									"key": "animal",
+									"value": "Parrot",
+									"description": "String",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "false",
+									"description": "boolean",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"description": "page number, default = 0",
+									"disabled": true
+								},
+								{
+									"key": "per-page",
+									"value": "2",
+									"description": "page size,  default = 10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/pets?dob-after=2023-03-18&animal=Cat&status=false&page=0&per-page=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pets"
+									],
+									"query": [
+										{
+											"key": "dob-after",
+											"value": "2023-03-18",
+											"description": "yyyy-MM-dd"
+										},
+										{
+											"key": "animal",
+											"value": "Cat",
+											"description": "String"
+										},
+										{
+											"key": "status",
+											"value": "false",
+											"description": "boolean"
+										},
+										{
+											"key": "page",
+											"value": "0",
+											"description": "page number, default = 0"
+										},
+										{
+											"key": "per-page",
+											"value": "2",
+											"description": "page size,  default = 10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Mar 2025 12:51:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 6,\n        \"animal\": \"Cat\",\n        \"name\": \"Luna\",\n        \"breed\": null,\n        \"dateOfBirth\": \"2024-05-15\",\n        \"adoptionStatus\": false\n    },\n    {\n        \"id\": 7,\n        \"animal\": \"Cat\",\n        \"name\": \"Lunar\",\n        \"breed\": null,\n        \"dateOfBirth\": \"2023-05-15\",\n        \"adoptionStatus\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Rollo\",\n    \"animal\": \"Dog\",\n    \"breed\": \"Maltese\",\n    \"dateOfBirth\": \"2025-02-01\",\n    \"adoptionStatus\": false\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"animal\": \"Cat\",\n    \"name\": \"Mimi\",\n    \"dateOfBirth\": \"2020-01-25\",\n    \"adoptionStatus\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pets",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Mar 2025 12:49:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8,\n    \"animal\": \"Cat\",\n    \"name\": \"Mimi\",\n    \"breed\": null,\n    \"dateOfBirth\": \"2020-01-25\",\n    \"adoptionStatus\": false\n}"
+						},
+						{
+							"name": "Fail (missing non-nullable param animal)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Mimi\",\n    \"dateOfBirth\": \"2020-01-25\",\n    \"adoptionStatus\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pets",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pets"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Mar 2025 12:49:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2025-03-18T12:49:29.940+00:00\",\n    \"status\": 400,\n    \"error\": \"Bad Request\",\n    \"path\": \"/pets\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"breed\": \"Siamese\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pets/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5",
+									"description": "Pet id"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"breed\": \"Siamese\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pets/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pets",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Mar 2025 12:52:47 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8,\n    \"animal\": \"Cat\",\n    \"name\": \"Mimi\",\n    \"breed\": \"Siamese\",\n    \"dateOfBirth\": \"2020-01-25\",\n    \"adoptionStatus\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pets/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Pet id"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/pets/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pets",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Mar 2025 12:47:24 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/pets/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pets",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "555"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Mar 2025 12:48:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PET STORY",
+			"item": [
+				{
+					"name": "Get single by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pet-stories/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pet-stories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "PetStory id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pet-stories?page=0&per-page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pet-stories"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"description": "default 0"
+								},
+								{
+									"key": "per-page",
+									"value": "1",
+									"description": "default 10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"story\": \"It was found on the streets, but now it has a loving home.\",\n    \"writtenBy\": \"Jane Doe\",\n    \"dateWritten\": \"2024-03-20\",\n    \"pet\": {\n        \"id\": 2\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pet-stories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pet-stories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"story\": \"It was found on the streets, but now it has a loving home.\",\n    \"writtenBy\": \"Jane Doe\",\n    \"dateWritten\": \"2024-03-20\",\n    \"pet\": {\n        \"id\": 3\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pet-stories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pet-stories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Mar 2025 16:11:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"story\": \"It was found on the streets, but now it has a loving home.\",\n    \"writtenBy\": \"Jane Doe\",\n    \"dateWritten\": \"2024-03-20T00:00:00.000+00:00\",\n    \"pet\": {\n        \"id\": 3,\n        \"animal\": \"Parrot\",\n        \"name\": \"Xoxy\",\n        \"breed\": null,\n        \"dateOfBirth\": \"2020-03-18\",\n        \"adoptionStatus\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"story\": \"It was found on the streets, but now it has a loving home.\",\n    \"writtenBy\": \"Jane Doe\",\n    \"dateWritten\": \"2024-03-20\",\n    \"pet\": {\n        \"id\": 3\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pet-stories/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pet-stories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "PetStory id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pet-stories/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pet-stories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "PetStory id"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pet-stories/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pet-stories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "PetStory id"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 21 Mar 2025 16:13:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pet-stories/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pet-stories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "333",
+											"description": "PetStory id"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Mar 2025 16:13:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -13,7 +13,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
@@ -40,9 +39,9 @@ public class Pet {
     @JsonIgnore
     private List<MedicalRecord> medicalRecords = new ArrayList<>();
     
-    @OneToOne(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
-    private PetStory petStory;
+    private List<PetStory> petStories;
 
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
@@ -109,12 +108,12 @@ public class Pet {
         medicalRecord.setPet(this);
     }
 
-    public PetStory getPetStory() {
-        return petStory;
+    public List<PetStory> getPetStories() {
+        return petStories;
     }
 
-    public void setPetStory(PetStory petStory) {
-        this.petStory = petStory;
+    public void setPetStories(List<PetStory> petStories) {
+        this.petStories = petStories;
     }
 
     public List<AdoptionApplication> getAdoptionApplications() {
